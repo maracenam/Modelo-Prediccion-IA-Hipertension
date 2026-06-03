@@ -1,0 +1,56 @@
+# ========================
+# Variables de entorno
+# ========================
+.env
+*.env
+
+# ========================
+# Modelo entrenado
+# ========================
+# El modelo .pkl no se sube al repo por su tamaño.
+# Instrucciones para obtenerlo en el README.
+modelo_hta.pkl
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# ========================
+# Entornos virtuales
+# ========================
+venv/
+env/
+.venv/
+.env/
+
+# ========================
+# IDEs y editores
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ========================
+# Jupyter Notebooks
+# ========================
+.ipynb_checkpoints/
+*.ipynb
+
+# ========================
+# Logs
+# ========================
+*.log
+logs/
