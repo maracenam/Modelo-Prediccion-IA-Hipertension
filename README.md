@@ -75,6 +75,8 @@ Se evaluaron tres algoritmos supervisados sobre el mismo dataset (ENS 2016–201
 | Verdaderos positivos | 3.430 |
 | Falsos negativos | 2.428 |
 
+> **Nota sobre el umbral:** las métricas anteriores usan el umbral estándar de 0,50. En el chatbot se usa un umbral de **0,40** para ser más conservador (priorizar detectar casos), por lo que en uso real la sensibilidad es mayor y la precisión algo menor que lo reportado.
+
 ### Variables de entrada
 
 | Variable | Descripción | Tipo |
@@ -87,6 +89,22 @@ Se evaluaron tres algoritmos supervisados sobre el mismo dataset (ENS 2016–201
 | Actividad física | Actividad regular | Binario |
 | Antecedentes familiares | Historia familiar de HTA | Binario |
 | Diabetes | Diagnóstico previo | Binario |
+
+---
+
+## 🔍 Limitaciones
+
+- **Validación externa con datos incompletos.** El registro del CESFAM no incluye IMC exacto (se estimó a partir de la marca de obesidad: 32 si es obeso, 23 si no), ni actividad física ni antecedentes familiares (se imputaron como 0). Esto explica buena parte de la baja de sensibilidad (69,5% → 58,6%).
+- **Datos autorreportados.** Las variables de entrada las declara el usuario, sin verificación clínica.
+- **Población.** El modelo se entrenó con población chilena adulta; no se ha evaluado en otros países.
+- **Variables limitadas.** Solo 8 factores de riesgo; no incluye, por ejemplo, consumo de sal ni presión medida.
+- **Uso académico de los datos.** El dataset del CESFAM fue cedido exclusivamente para fines académicos.
+
+---
+
+## 📸 Demo
+
+<!-- Agrega aquí una captura o GIF del bot funcionando, por ejemplo: ![Demo del bot](docs/demo.gif) -->
 
 ---
 
@@ -137,8 +155,8 @@ El proyecto incorpora explícitamente principios de IA responsable:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/hta-predictor-bot.git
-cd hta-predictor-bot
+git clone https://github.com/maracenam/predictor-hipertension-ia.git
+cd predictor-hipertension-ia
 ```
 
 ### 2. Crear entorno virtual e instalar dependencias
@@ -186,7 +204,7 @@ python app.py
 ## 📁 Estructura del proyecto
 
 ```
-hta-predictor-bot/
+predictor-hipertension-ia/
 ├── app.py              # Servidor Flask + webhook + máquina de estados
 ├── predictor.py        # Clase HypertensionPredictor (carga modelo y predice)
 ├── train_model.py      # Script de entrenamiento (reproduce el modelo desde cero)
@@ -196,6 +214,7 @@ hta-predictor-bot/
 ├── data/
 │   └── README.md       # Instrucciones para obtener los datos de entrenamiento
 ├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
