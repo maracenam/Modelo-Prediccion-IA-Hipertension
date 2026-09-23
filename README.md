@@ -155,8 +155,8 @@ El proyecto incorpora explícitamente principios de IA responsable:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/maracenam/predictor-hipertension-ia.git
-cd predictor-hipertension-ia
+git clone https://github.com/maracenam/Modelo-Prediccion-IA-Hipertension.git
+cd Modelo-Prediccion-IA-Hipertension
 ```
 
 ### 2. Crear entorno virtual e instalar dependencias
